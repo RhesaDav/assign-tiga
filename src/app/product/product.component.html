@@ -1,5 +1,5 @@
-<header>
-  <div class="bg-dark text-white fixed-top">
+<!-- <header>
+  <div class="bg-dark text-white">
     <div class="container-xxl">
       <div class="row">
         <div class="col-7 align-self-start">
@@ -106,7 +106,7 @@
       </div>
     </div>
   </div>
-</header>
+</header> -->
 
 <div class="container bg-light" style="height: 1500px; padding-top: 120px">
   <nav aria-label="breadcrumb">
@@ -120,75 +120,56 @@
   <div class="container">
     <div class="row">
       <div class="col-2">
-          <fieldset>
-        <legend style="color: black; padding: 3px;">Catergory</legend>
-        
-            <button type="button" class="btn btn-secondary" style="margin: 10px;">Secondary</button><br>
-            <button type="button" class="btn btn-secondary" style="margin: 10px;">Secondary</button><br>
-            <button type="button" class="btn btn-secondary" style="margin: 10px;">Secondary</button><br>
+        <fieldset>
+          <legend style="color: black; padding: 3px">Category</legend>
+
+          <button type="button" class="btn btn-secondary" style="margin: 10px">
+            Kaos</button
+          ><br />
+          <button type="button" class="btn btn-secondary" style="margin: 10px">
+            Sepatu</button
+          ><br />
+          <button type="button" class="btn btn-secondary" style="margin: 10px">
+            <i class="bi bi-cart"></i></button
+          ><br />
+          <button routerLink="/cart" type="button" class="btn btn-primary position-relative">
+            Cart
+            <span
+              class="
+                position-absolute
+                top-0
+                start-100
+                translate-middle
+                badge
+                rounded-pill
+                bg-danger
+              "
+            >
+              {{totalItem}}
+            </span>
+          </button>
         </fieldset>
       </div>
 
       <div class="col-10">
         <hr />
         <div class="row">
-          <div class="col-4">
+          <div class="col-4" *ngFor="let product of products">
             <div class="card" style="width: 18rem">
-                <h5 class="card-title text-center">Kaos</h5>
-              <img
-                src="../../assets/product01.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                
+              <h5 class="card-title text-center">{{ product.nama }}</h5>
+              <img [src]="product.gambar" class="card-img-top" alt="..." />
+              <div class="card-body" style="padding: 5px">
+                <p class="card-text">{{ product.desc }}</p>
                 <p class="card-text">
-                  <li>Officially licensed</li>
-                  <li>100% cotton</li>
-                  <li>Lightweight (4.5 oz./sq. yard)</li>
-                  <li>Pre-shrunk cotton</li>
+                  <strong>Harga </strong> Rp.{{ product.harga }}
                 </p>
-                <button href="#" class="btn btn-primary">Go somewhere</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 18rem">
-                <h5 class="card-title text-center">Kaos</h5>
-              <img
-                src="../../assets/product01.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                
-                <p class="card-text">
-                  <li>Officially licensed</li>
-                  <li>100% cotton</li>
-                  <li>Lightweight (4.5 oz./sq. yard)</li>
-                  <li>Pre-shrunk cotton</li>
-                </p>
-                <button href="#" class="btn btn-primary">Go somewhere</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 18rem">
-                <h5 class="card-title text-center">Kaos</h5>
-              <img
-                src="../../assets/product01.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                
-                <p class="card-text">
-                  <li>Officially licensed</li>
-                  <li>100% cotton</li>
-                  <li>Lightweight (4.5 oz./sq. yard)</li>
-                  <li>Pre-shrunk cotton</li>
-                </p>
-                <button href="#" class="btn btn-primary">Go somewhere</button>
+                <button
+                  href="#"
+                  class="btn btn-primary"
+                  (click)="addToCart(product)"
+                >
+                  Go somewhere
+                </button>
               </div>
             </div>
           </div>
