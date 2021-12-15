@@ -46,10 +46,12 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
       {path: 'product', component: ProductComponent},
       {path: 'cart', component: CartComponent},
       {path: 'profile', component: ProfileComponent},
-      {path: 'profile/register', component: RegisterComponent},
-      {path: 'profile/login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
+      {path: 'login', component: LoginComponent},
       {path: 'contact', component: ContactComponent},
       {path: 'productdetail', component: ProductdetailComponent},
+      {path: 'user', component: BoardUserComponent},
+      {path: 'admin', component: BoardAdminComponent},
   
       {path: '**', component: PagenotfoundComponent }
     ])

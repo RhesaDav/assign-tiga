@@ -123,35 +123,25 @@
       <div class="col">
         <label for="exampleInputEmail1" class="form-label">Nama Depan</label>
         <input
-          type="text"
-          class="form-control"
-          placeholder="First name"
-          aria-label="First name"
-          [(ngModel)]="form.username"
-          required
-          minlength="3"
-          maxlength="20"
-          #username="ngModel"
+        type="text"
+        class="form-control"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel"
         />
         <div class="alert-danger" *ngIf="username.errors && f.submitted">
           <div *ngIf="username.errors['required']">Username is required</div>
-          <div *ngIf="username.errors['minlength']">
+          <div *ngIf="username.errors['minlength']">  
             Username must be at least 3 characters
           </div>
           <div *ngIf="username.errors['maxlength']">
             Username must be at most 20 characters
           </div>
         </div>
-      </div>
-      <div class="col">
-        <label for="exampleInputEmail1" class="form-label">Nama Belakang</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Last name"
-          aria-label="Last name"
-        />
-      </div>
+      </div>   
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -192,9 +182,9 @@
         </div>
       </div>
     </div>
-
-    <button class="btn btn-secondary">Regist</button>
-
+    <div class="form-group">
+    <button type="submit" class="btn btn-secondary">Regist</button>
+  </div>
     <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
       Signup failed!<br />{{ errorMessage }}
     </div>
@@ -203,4 +193,5 @@
   <div class="alert alert-success" *ngIf="isSuccessful">
     Your registration is successful!
   </div>
+
 </div>
